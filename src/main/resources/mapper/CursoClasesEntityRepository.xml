@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.primerosauxilios.server.repositories.CursoClasesEntityRepository">
+    <resultMap id="BaseResultMap" type="com.primerosauxilios.server.entities.CursoClasesEntity">
+        <!--@JPA.Support generated on 2022-11-11 17:06:18.-->
+        <!--@Table Curso_Clases-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="curso_id" jdbcType="INTEGER" property="cursoId"/>
+        <result column="plantilla_modulo_id" jdbcType="VARCHAR" property="plantillaModuloId"/>
+        <result column="direccion" jdbcType="VARCHAR" property="direccion"/>
+        <result column="ciudad" jdbcType="VARCHAR" property="ciudad"/>
+        <result column="fecha_hora" jdbcType="TIMESTAMP" property="fechaHora"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-11-11 17:06:18.-->
+        id, curso_id, plantilla_modulo_id, direccion, ciudad, fecha_hora
+    </sql>
+</mapper>

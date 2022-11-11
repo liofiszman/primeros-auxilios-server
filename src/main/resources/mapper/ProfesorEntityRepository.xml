@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.primerosauxilios.server.repositories.ProfesorEntityRepository">
+    <resultMap id="BaseResultMap" type="com.primerosauxilios.server.entities.ProfesorEntity">
+        <!--@JPA.Support generated on 2022-11-11 17:06:19.-->
+        <!--@Table Profesor-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="nombre" jdbcType="VARCHAR" property="nombre"/>
+        <result column="apellido" jdbcType="VARCHAR" property="apellido"/>
+        <result column="DNI" jdbcType="VARCHAR" property="dni"/>
+        <result column="telefono" jdbcType="VARCHAR" property="telefono"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="external_id" jdbcType="INTEGER" property="externalId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-11-11 17:06:19.-->
+        id, nombre, apellido, DNI, telefono, email, external_id
+    </sql>
+</mapper>

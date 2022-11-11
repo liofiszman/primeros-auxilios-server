@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.primerosauxilios.server.repositories.CursoClasesAlumnoEntityRepository">
+    <resultMap id="BaseResultMap" type="com.primerosauxilios.server.entities.CursoClasesAlumnoEntity">
+        <!--@JPA.Support generated on 2022-11-11 17:06:18.-->
+        <!--@Table Curso_Clases_Alumno-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="curso_clase_id" jdbcType="INTEGER" property="cursoClaseId"/>
+        <result column="curso_alumno_id" jdbcType="INTEGER" property="cursoAlumnoId"/>
+        <result column="asistencia" jdbcType="TINYINT" property="asistencia"/>
+        <result column="nota_examen" jdbcType="INTEGER" property="notaExamen"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@JPA.Support generated on 2022-11-11 17:06:18.-->
+        id, curso_clase_id, curso_alumno_id, asistencia, nota_examen
+    </sql>
+</mapper>
