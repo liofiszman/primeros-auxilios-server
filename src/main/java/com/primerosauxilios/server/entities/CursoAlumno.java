@@ -1,5 +1,9 @@
 package com.primerosauxilios.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
@@ -10,12 +14,14 @@ import java.util.Set;
 public class CursoAlumno {
     private Integer id;
 
+    @JsonBackReference
     private Curso curso;
 
     private Alumno alumno;
 
     private Integer notaFinal;
 
+    @JsonIgnore
     private Set<CursoClasesAlumno> cursoClasesAlumnos = new LinkedHashSet<>();
 
     @Id
@@ -30,7 +36,7 @@ public class CursoAlumno {
     }
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "curso_id", nullable = false)
     public Curso getCurso() {
         return curso;
@@ -41,7 +47,7 @@ public class CursoAlumno {
     }
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "alumno_id", nullable = false)
     public Alumno getAlumno() {
         return alumno;

@@ -1,5 +1,9 @@
 package com.primerosauxilios.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,6 +26,7 @@ public class Profesor {
     private String email;
 
     private Integer externalId;
+
 
     private Set<Curso> cursos = new LinkedHashSet<>();
 
@@ -97,11 +102,12 @@ public class Profesor {
         this.externalId = externalId;
     }
 
+    @JsonIgnore
     @OneToMany(mappedBy = "profesor")
     public Set<Curso> getCursos() {
         return cursos;
     }
-
+    @JsonIgnore
     public void setCursos(Set<Curso> cursos) {
         this.cursos = cursos;
     }

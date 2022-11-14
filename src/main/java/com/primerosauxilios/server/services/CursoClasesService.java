@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CursoClasesService {
 
-    public CursoClase create(CursoClase cursoClase);
+    public CursoClase create(CursoClase cursoClase, Integer cursoId) ;
 
     public CursoClase update(CursoClase cursoClase, Integer id);
 

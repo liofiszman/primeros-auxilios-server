@@ -1,5 +1,9 @@
 package com.primerosauxilios.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -17,10 +21,13 @@ public class Curso {
 
     private String estado;
 
+
     private Profesor profesor;
 
+    @JsonManagedReference
     private Set<CursoAlumno> cursoAlumnos = new LinkedHashSet<>();
 
+    @JsonManagedReference
     private Set<CursoClase> cursoClases = new LinkedHashSet<>();
 
     @Id
@@ -67,7 +74,7 @@ public class Curso {
         this.estado = estado;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "profesor_id")
     public Profesor getProfesor() {
         return profesor;

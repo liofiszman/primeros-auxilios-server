@@ -1,5 +1,8 @@
 package com.primerosauxilios.server.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,6 +26,7 @@ public class Alumno {
 
     private Integer externalId;
 
+    @JsonIgnore
     private Set<CursoAlumno> cursoAlumnos = new LinkedHashSet<>();
 
     @Id
@@ -97,7 +101,7 @@ public class Alumno {
         this.externalId = externalId;
     }
 
-    @OneToMany(mappedBy = "alumno")
+    @OneToMany(mappedBy = "alumno", fetch = FetchType.LAZY)
     public Set<CursoAlumno> getCursoAlumnos() {
         return cursoAlumnos;
     }

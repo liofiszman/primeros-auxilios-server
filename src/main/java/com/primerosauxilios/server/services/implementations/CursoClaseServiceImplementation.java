@@ -20,9 +20,13 @@ public class CursoClaseServiceImplementation implements CursoClasesService {
     @Autowired
     private CursoClaseRepository cursoClaseRepository;
 
-    @Override
-    public CursoClase create(CursoClase cursoClase) {
+    @Autowired
+    private CursoServiceImplementation cursoServiceImplementation;
 
+    @Override
+    public CursoClase create(CursoClase cursoClase, Integer cursoId) {
+
+        cursoClase.setCurso(cursoServiceImplementation.getById(cursoId));
         CursoClase savedCursoClase = cursoClaseRepository.save(cursoClase);
         return savedCursoClase;
     }
